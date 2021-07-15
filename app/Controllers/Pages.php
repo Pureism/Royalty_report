@@ -9,9 +9,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | Sistem Informasi Divisi Editor'
         ];
-        echo view('layout\header', $data);
-        echo view('pages\home');
-        echo view('layout\footer');
+        return view('pages\home', $data);
     }
 
     public function daftarEditor()
@@ -19,9 +17,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | Editor'
         ];
-        echo view('layout\header', $data);
-        echo view('pages\editor');
-        echo view('layout\footer');
+        echo view('pages\editor', $data);
     }
 
     public function daftarPenulis()
@@ -29,9 +25,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | Penulis'
         ];
-        echo view('layout\header', $data);
-        echo view('pages\penulis');
-        echo view('layout\footer');
+        echo view('pages\penulis', $data);
     }
 
     public function reportRoyalty()
@@ -39,9 +33,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | Report Royalty'
         ];
-        echo view('layout\header', $data);
-        echo view('pages\royalty');
-        echo view('layout\footer');
+        echo view('pages\royalty', $data);
     }
 
     public function reportOrder()
@@ -49,9 +41,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | Report Order'
         ];
-        echo view('layout\header', $data);
-        echo view('pages\order');
-        echo view('layout\footer');
+        echo view('pages\order', $data);
     }
 
     public function reportProgress()
@@ -59,9 +49,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | Report Progress'
         ];
-        echo view('layout\header', $data);
-        echo view('pages\progress');
-        echo view('layout\footer');
+        echo view('pages\progress', $data);
     }
 
     public function about()
@@ -69,8 +57,6 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | About'
         ];
-        echo view('layout\header', $data);
-        echo view('pages\about');
-        echo view('layout\footer');
+        echo view('pages\about', $data);
     }
 }
