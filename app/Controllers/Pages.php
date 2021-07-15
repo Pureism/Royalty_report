@@ -17,7 +17,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | Editor'
         ];
-        echo view('pages\editor', $data);
+        return view('pages\editor', $data);
     }
 
     public function daftarPenulis()
@@ -25,15 +25,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | Penulis'
         ];
-        echo view('pages\penulis', $data);
-    }
-
-    public function reportRoyalty()
-    {
-        $data = [
-            'title' => 'Kelompok 3 | Report Royalty'
-        ];
-        echo view('pages\royalty', $data);
+        return view('pages\penulis', $data);
     }
 
     public function reportOrder()
@@ -41,7 +33,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | Report Order'
         ];
-        echo view('pages\order', $data);
+        return view('pages\order', $data);
     }
 
     public function reportProgress()
@@ -49,7 +41,7 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | Report Progress'
         ];
-        echo view('pages\progress', $data);
+        return view('pages\progress', $data);
     }
 
     public function about()
@@ -57,6 +49,6 @@ class Pages extends BaseController
         $data = [
             'title' => 'Kelompok 3 | About'
         ];
-        echo view('pages\about', $data);
+        return view('pages\about', $data);
     }
 }
