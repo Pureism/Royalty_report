@@ -20,7 +20,7 @@ class Royalty extends BaseController
             'title' => 'Kelompok 3 | Report Royalty',
             'royalty' => $royalty
         ];
-        return view('pages\royalty', $data);
+        return view('royalty\index', $data);
     }
 
     public function save()
@@ -30,6 +30,6 @@ class Royalty extends BaseController
             'total' => $this->request->getVar('total'),
             'lampiran' => $this->request->getVar('lampiran')
         ]);
-        return redirect()->to('/royalty');
+        return redirect()->to('/Royalty');
     }
 }

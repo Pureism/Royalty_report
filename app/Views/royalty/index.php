@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <form class="col-6 my-5" action="/royalty/save" method="POST">
+            <form class="col-6 my-5" action="/royalty/save" method="post">
                 <?php csrf_field(); ?>
                 <h3 class="mt-4 mb-4"><b>Tambah Royalty</b></h3>
                 <div class="row mb-3">
@@ -35,32 +35,30 @@
     </div>
     <div class="row">
         <div class="col">
-
             <h3 class="mt-4 mb-4"><b>Daftar Royalty</b></h3>
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col" class="text-center">Detail Report</th>
+                        <th scope="col">Detail Report</th>
                         <th scope="col">Total</th>
-                        <th scope="col" class="text-center">Lampiran</th>
-                        <th scope="col" class="text-center">Dibuat</th>
-                        <th scope="col" class="mx-0 px-0 text-center">Aksi</th>
+                        <th scope="col">Lampiran</th>
+                        <th scope="col">Dibuat</th>
+                        <th scope="col" class="mx-0 px-0">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php $i = 1 ?>
                     <?php foreach ($royalty as $r) : ?>
                         <tr>
-                            <th scope="row"><?= $i++; ?></th>
-                            <td class="text-break " style="width: 50%"><?= $r['deskripsi']; ?></td>
+                            <th class="text-center" scope="row"><?= $i++; ?></th>
+                            <td class="text-break col-6"><?= $r['deskripsi']; ?></td>
                             <td>Rp <?= $r['total']; ?></td>
                             <td class="text-center">Tidak ada</td>
-                            <td class="text-center"><?= $r['dibuat']; ?></td>
+                            <td class="text-center text-break"><?= $r['dibuat']; ?></td>
                             <td>
-                                <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-outline-primary">Ubah</button>
-                                    <button type="button" class="btn btn-outline-danger">Hapus</button>
+                                <div class="col text-center">
+                                    <button type="button" class="btn btn-outline-info">Details</button>
                                 </div>
                             </td>
                         </tr>
