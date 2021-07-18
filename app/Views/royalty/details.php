@@ -16,9 +16,15 @@
         <div class="col">
             <div class="card">
                 <div class="card-header">
-                    <div>
-                        <h2><b>Detail Reports <?= $royalty['slug']; ?>_<?= $royalty['id_royalty']; ?></b></h2>
-                        <small class="text-muted">Updated <?= $diubah; ?></small>
+                    <div class="row">
+                        <div class="col">
+                            <h2><b>Detail Reports <?= $royalty['slug']; ?>_<?= $royalty['id_royalty']; ?></b></h2>
+                            <small class="text-muted align-middle">Updated <?= $diubah; ?></small>
+                        </div>
+                        <div class="col  text-end">
+                            <br>
+                            <small class="text-muted">Created <?= $royalty['dibuat']; ?></small>
+                        </div>
                     </div>
                 </div>
                 <div class="card-body">
