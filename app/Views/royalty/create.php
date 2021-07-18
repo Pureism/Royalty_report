@@ -61,7 +61,10 @@
                 <div class="row mb-3">
                     <label for="deskripsi" class="col-sm-2 col-form-label">Detail</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control" rows="3" id="deskripsi" name="deskripsi" placeholder="Catatan Royalty"></textarea>
+                        <textarea class="form-control <?= ($validation->hasError('deskripsi')) ? 'is-invalid' : ''; ?>" rows="3" id="deskripsi" name="deskripsi" placeholder="Catatan Royalty" value="<?= old('deskripsi'); ?>"><?= old('deskripsi'); ?></textarea>
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('deskripsi'); ?>
+                        </div>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -69,14 +72,17 @@
                     <div class="col-sm-10">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">Rp</span>
-                            <input type="number" class="form-control" id="total" name="total" placeholder="Total Royalty">
+                            <input type="number" class="form-control <?= ($validation->hasError('total')) ? 'is-invalid' : ''; ?>" id="total" name="total" placeholder="Total Royalty" autofocus value="<?= old('total'); ?>">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('total'); ?>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="lampiran" class="col-sm-2 col-form-label">Lampiran</label>
                     <div class="col-sm-10">
-                        <input type="file" class="form-control" id="lampiran" name="lampiran" placeholder="Catatan Royalty">
+                        <input type="file" class="form-control" id="lampiran" name="lampiran" placeholder="Catatan Royalty" value="<?= old('lampiran'); ?>">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary my-3">Tambah</button>

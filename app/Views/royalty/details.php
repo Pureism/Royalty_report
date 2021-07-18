@@ -48,7 +48,7 @@
                         <h4>Catatan</h4>
                         <li class="list-group-item mb-3"><?= $royalty['deskripsi']; ?></li>
                         <h4>Lampiran</h4>
-                        <li class="list-group-item">And a fifth one</li>
+                        <li class="list-group-item"><img src="/img/<?= $royalty['lampiran']; ?>.jpg" alt=""></li>
                         <li class="list-group-item"></li>
                     </ul>
                 </div>

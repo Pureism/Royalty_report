@@ -21,8 +21,17 @@
         </div>
     </div>
     <div class="row">
-        <div class="col">
+        <div class="col-sm-3">
             <h3 class="mt-4 mb-4"><b>Daftar Royalty</b></h3>
+            <?php if (session()->getFlashdata('pesan')) : ?>
+                <div class="alert alert-success text-center" role="alert">
+                    <?= session()->getFlashdata('pesan'); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <table class="table table-striped table-hover">
                 <thead>
                     <tr>
@@ -41,7 +50,7 @@
                             <th class="text-center" scope="row"><?= $i++; ?></th>
                             <td class="text-break col-6"><?= $r['deskripsi']; ?></td>
                             <td>Rp <?= $r['total']; ?></td>
-                            <td class="text-center">Tidak ada</td>
+                            <td class="text-center"><?= (empty($r['lampiran'])) ? 'Tidak ada' : 'Ada'; ?></td>
                             <td class="text-center text-break"><?= $r['dibuat']; ?></td>
                             <td>
                                 <div class="col text-center">

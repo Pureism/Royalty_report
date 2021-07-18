@@ -38,13 +38,32 @@ class Royalty extends BaseController
     {
         $data = [
             'title' => 'Kelompok 3 | Tambah Royalty',
-            'royalty' => $this->RoyaltyModel->getRoyalty()
+            'validation' => \config\Services::validation()
         ];
         return view('royalty\create', $data);
     }
 
     public function save()
     {
+        if (!$this->validate([
+            'deskripsi' => [
+                'rules' => 'required|min_length[5]',
+                'errors' => [
+                    'required' => 'Deskripsi tidak boleh kosong',
+                    'min_length' => '{field} terlalu sedikit'
+                ]
+            ],
+            'total' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Total Royalty tidak boleh kosong'
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to('royalty/create')->withInput()->with('validation', $validation);
+        }
+
         $timestamp = Time::now();
         $slug = url_title(Time::parse($timestamp)->toLocalizedString('yyyyMMddHHmmss'), '-', true);
         $this->RoyaltyModel->save([
@@ -53,6 +72,7 @@ class Royalty extends BaseController
             'lampiran' => $this->request->getVar('lampiran'),
             'slug' => $slug
         ]);
+        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
         return redirect()->to('/Royalty');
     }
 }
