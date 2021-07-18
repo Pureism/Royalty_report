@@ -33,8 +33,9 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Pages::index');
 
+$routes->get('/royalty/create', 'royalty::create');
 //Route ke detail
-$routes->get('/royalty/(:segment)', 'Royalty::details/$1');
+$routes->get('/royalty/(:any)', 'Royalty::details/$1');
 
 /*
  * --------------------------------------------------------------------
