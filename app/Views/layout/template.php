@@ -10,16 +10,19 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Local CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style/style.css">
 
     <title><?= $title; ?></title>
 </head>
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
-            <a class="navbar-brand active" href="/">Kelompok 3</a>
+            <a class="navbar-brand active" href="/">
+                <img src="/image/navbrand.png" alt="" width="20" height="20" class="d-inline-block align-text-top">
+                Kelompok 3
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
