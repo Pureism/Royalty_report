@@ -58,7 +58,7 @@
                             <td class="text-center text-break"><?= $r['dibuat']; ?></td>
                             <td>
                                 <div class="col text-center">
-                                    <button type="button" class="btn btn-outline-info">Details</button>
+                                    <a href="/royalty/<?= $r['slug']; ?>" class="btn btn-outline-info">Details</a>
                                 </div>
                             </td>
                         </tr>

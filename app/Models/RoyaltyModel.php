@@ -12,4 +12,13 @@ class RoyaltyModel extends Model
     protected $createdField = 'dibuat';
     protected $updatedField = 'diubah';
     protected $allowedFields = ['deskripsi', 'total', 'lampiran'];
+
+    public function getRoyalty($slug = false)
+    {
+        if ($slug == false) {
+            return $this->findAll();
+        }
+
+        return $this->where(['slug' => $slug])->first();
+    }
 }

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\RoyaltyModel;
+use CodeIgniter\I18n\Time;
 
 class Royalty extends BaseController
 {
@@ -15,12 +16,22 @@ class Royalty extends BaseController
 
     public function index()
     {
-        $royalty = $this->RoyaltyModel->findAll();
         $data = [
             'title' => 'Kelompok 3 | Report Royalty',
-            'royalty' => $royalty
+            'royalty' => $this->RoyaltyModel->getRoyalty()
         ];
         return view('royalty\index', $data);
+    }
+
+    public function details($slug)
+    {
+        $royalty = $this->RoyaltyModel->getRoyalty($slug);
+        $data = [
+            'title' => 'Kelompok 3 | Detail Royalty',
+            'royalty' => $royalty,
+            'diubah' => Time::parse($royalty['diubah'], 'Asia/Jakarta')->humanize()
+        ];
+        return view('royalty\details', $data);
     }
 
     public function save()
