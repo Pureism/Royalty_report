@@ -34,6 +34,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Pages::index');
 
 $routes->get('/royalty/create', 'royalty::create');
+$routes->get('/royalty/edit/(:segment)', 'royalty::edit/$1');
 $routes->delete('/royalty/(:num)', 'royalty::delete/$1');
 $routes->get('/royalty/(:any)', 'Royalty::details/$1');
 

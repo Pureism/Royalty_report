@@ -53,7 +53,7 @@
                     </ul>
                 </div>
                 <div class="card-body text-end">
-                    <a href="#" class="btn btn-warning">Ubah</a>
+                    <a href="/royalty/edit/<?= $royalty['slug']; ?>" class="btn btn-warning">Ubah</a>
                     <form action="/royalty/<?= $royalty['id_royalty']; ?>" method="POST" class="d-inline" onclick="return confirm('Apakah anda yakin ?')">
                         <?= csrf_field(); ?>
                         <input type="hidden" name="_method" value="delete">

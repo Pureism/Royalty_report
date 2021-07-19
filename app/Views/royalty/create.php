@@ -61,7 +61,7 @@
                 <div class="row mb-3">
                     <label for="deskripsi" class="col-sm-2 col-form-label">Detail</label>
                     <div class="col-sm-10">
-                        <textarea class="form-control <?= ($validation->hasError('deskripsi')) ? 'is-invalid' : ''; ?>" rows="3" id="deskripsi" name="deskripsi" placeholder="Catatan Royalty" value="<?= old('deskripsi'); ?>"><?= old('deskripsi'); ?></textarea>
+                        <textarea class="form-control <?= ($validation->hasError('deskripsi')) ? 'is-invalid' : ''; ?>" rows="3" id="deskripsi" name="deskripsi" placeholder="Catatan Royalty" value="<?= old('deskripsi'); ?>" autofocus><?= old('deskripsi'); ?></textarea>
                         <div class="invalid-feedback">
                             <?= $validation->getError('deskripsi'); ?>
                         </div>
@@ -72,7 +72,7 @@
                     <div class="col-sm-10">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">Rp</span>
-                            <input type="number" class="form-control <?= ($validation->hasError('total')) ? 'is-invalid' : ''; ?>" id="total" name="total" placeholder="Total Royalty" autofocus value="<?= old('total'); ?>">
+                            <input type="number" class="form-control <?= ($validation->hasError('total')) ? 'is-invalid' : ''; ?>" id="total" name="total" placeholder="Total Royalty" value="<?= old('total'); ?>">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('total'); ?>
                             </div>
