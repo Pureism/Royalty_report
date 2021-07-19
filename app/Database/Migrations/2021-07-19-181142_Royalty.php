@@ -4,12 +4,12 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Mboh extends Migration
+class Royalty extends Migration
 {
 	public function up()
 	{
 		$this->forge->addField([
-			'id'          => [
+			'id_royalty'          => [
 				'type'           => 'INT',
 				'constraint'     => 11,
 				'unsigned'       => true,
@@ -35,6 +35,11 @@ class Mboh extends Migration
 			],
 			'deskripsi' => [
 				'type' => 'VARCHAR',
+				'constraint'     => '255',
+				'null' => true,
+			],
+			'cetak' => [
+				'type' => 'INT',
 				'constraint'     => '255',
 				'null' => true,
 			],
@@ -77,12 +82,12 @@ class Mboh extends Migration
 				'null' => true,
 			],
 		]);
-		$this->forge->addKey('id', true);
-		$this->forge->createTable('mboh');
+		$this->forge->addKey('id_royalty', true);
+		$this->forge->createTable('royalty');
 	}
 
 	public function down()
 	{
-		$this->forge->dropTable('mboh');
+		$this->forge->dropTable('royalty');
 	}
 }

@@ -39,7 +39,7 @@
                     <label for="buku" class="col-sm-2 col-form-label">Buku</label>
                     <div class="col">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item text-muted">Judul Buku</li>
+                            <li class="list-group-item text-muted h4"><?= (old('buku')) ? old('buku') : $royalty['buku']; ?></li>
                             <li class="list-group-item"></li>
                         </ul>
                     </div>
@@ -48,7 +48,7 @@
                     <label for="penulis" class="col-sm-2 col-form-label">Penulis</label>
                     <div class="col">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item text-muted">Nama Penulis</li>
+                            <li class="list-group-item text-muted h4"><?= (old('penulis')) ? old('penulis') : $royalty['penulis']; ?></li>
                             <li class="list-group-item"></li>
                         </ul>
                     </div>
@@ -57,7 +57,7 @@
                     <label for="orders" class="col-sm-2 col-form-label">Order</label>
                     <div class="col">
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item text-muted">Total Order</li>
+                            <li class="list-group-item text-muted "><?= (old('cetak')) ? old('cetak') : $royalty['cetak']; ?> buah</li>
                             <li class="list-group-item"></li>
                         </ul>
                     </div>

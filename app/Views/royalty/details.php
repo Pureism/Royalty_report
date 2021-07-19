@@ -31,19 +31,19 @@
                     <ul class="list-group list-group-flush">
                         <h4>Judul Buku</h4>
                         <li class="list-group-item mb-3">
-                            <p class="text-muted">A second item</p>
+                            <p class="text-muted h4"><b><i>" <?= $royalty['buku']; ?> "</i></b></p>
                         </li>
                         <h4>Penulis</h4>
                         <li class="list-group-item mb-3">
-                            <p class="text-muted">A second item</p>
+                            <p class="text-muted h4"><?= $royalty['penulis']; ?></p>
                         </li>
                         <h4>Jumlah Cetak</h4>
                         <li class="list-group-item mb-3">
-                            <p class="text-muted">A second item</p>
+                            <p class="text-muted"><?= $royalty['cetak']; ?> buah</p>
                         </li>
                         <h4>Total Royalty</h4>
                         <li class="list-group-item mb-3">
-                            <p class="text-muted">A second item</p>
+                            <p class="text-muted">Rp <?= $royalty['total']; ?></p>
                         </li>
                         <h4>Catatan</h4>
                         <li class="list-group-item mb-3"><?= $royalty['deskripsi']; ?></li>
