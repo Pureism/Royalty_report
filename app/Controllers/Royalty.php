@@ -72,7 +72,14 @@ class Royalty extends BaseController
             'lampiran' => $this->request->getVar('lampiran'),
             'slug' => $slug
         ]);
-        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan');
+        session()->setFlashdata('pesantambah', 'Data Berhasil Ditambahkan');
         return redirect()->to('/Royalty');
+    }
+
+    public function delete($id)
+    {
+        $this->RoyaltyModel->delete($id);
+        session()->setFlashdata('pesanhapus', 'Data Berhasil Dihapus');
+        return redirect()->to('/royalty');
     }
 }

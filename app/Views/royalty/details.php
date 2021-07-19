@@ -18,7 +18,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col">
-                            <h2><b>Detail Reports <?= $royalty['slug']; ?>_<?= $royalty['id_royalty']; ?></b></h2>
+                            <h2><b>Detail Reports <?= $royalty['slug']; ?></b></h2>
                             <small class="text-muted align-middle">Updated <?= $diubah; ?></small>
                         </div>
                         <div class="col  text-end">
@@ -54,7 +54,11 @@
                 </div>
                 <div class="card-body text-end">
                     <a href="#" class="btn btn-warning">Ubah</a>
-                    <a href="#" class="btn btn-danger">Hapus</a>
+                    <form action="/royalty/<?= $royalty['id_royalty']; ?>" method="POST" class="d-inline" onclick="return confirm('Apakah anda yakin ?')">
+                        <?= csrf_field(); ?>
+                        <input type="hidden" name="_method" value="delete">
+                        <button type="submit" class="btn btn-danger">Hapus</button>
+                    </form>
                 </div>
             </div>
         </div>

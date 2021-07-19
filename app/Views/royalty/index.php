@@ -23,9 +23,14 @@
     <div class="row">
         <div class="col-sm-3">
             <h3 class="mt-4 mb-4"><b>Daftar Royalty</b></h3>
-            <?php if (session()->getFlashdata('pesan')) : ?>
+            <?php if (session()->getFlashdata('pesantambah')) : ?>
                 <div class="alert alert-success text-center" role="alert">
-                    <?= session()->getFlashdata('pesan'); ?>
+                    <?= session()->getFlashdata('pesantambah'); ?>
+                </div>
+            <?php endif; ?>
+            <?php if (session()->getFlashdata('pesanhapus')) : ?>
+                <div class="alert alert-danger text-center" role="alert">
+                    <?= session()->getFlashdata('pesanhapus'); ?>
                 </div>
             <?php endif; ?>
         </div>
