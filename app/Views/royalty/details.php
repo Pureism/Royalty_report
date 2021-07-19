@@ -48,7 +48,21 @@
                         <h4>Catatan</h4>
                         <li class="list-group-item mb-3"><?= $royalty['deskripsi']; ?></li>
                         <h4>Lampiran</h4>
-                        <li class="list-group-item"><img src="/img/<?= $royalty['lampiran']; ?>.jpg" alt=""></li>
+                        <li class="list-group-item">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <?php $path = "image/" . $royalty['lampiran'] . ".png"; ?>
+                                        <img src="/image/<?= $royalty['lampiran']; ?><?= (file_exists($path) ? '.png' : '.jpg'); ?>" class="lampiran" alt="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-center">
+                                        <p><?= $royalty['lampiran']; ?><?= (file_exists($path) ? '.png' : '.jpg'); ?></p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </li>
                         <li class="list-group-item"></li>
                     </ul>
                 </div>
