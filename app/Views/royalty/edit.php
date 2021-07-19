@@ -14,10 +14,11 @@
     </div>
     <div class="row">
         <div class="col">
-            <form class="col-9" action="/royalty/update/<?= $royalty['id_royalty']; ?>" method="post">
+            <form class="col-9" action="/royalty/update/<?= $royalty['id_royalty']; ?>" method="post" enctype="multipart/form-data">
                 <?php csrf_field(); ?>
                 <input type="hidden" name="slug" value="<?= $royalty['slug']; ?>">
                 <input type="hidden" name="diubah" value="<?= $royalty['diubah']; ?>">
+                <input type="hidden" name="lampiranLama" value="<?= $royalty['lampiran']; ?>">
                 <h3 class="mt-4 mb-4"><b>Edit Royalty</b></h3>
                 <div class="row mb-3">
                     <label for="id_order" class="col-sm-2 col-form-label">Order</label>

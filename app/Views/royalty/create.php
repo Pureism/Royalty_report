@@ -13,7 +13,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <form class="col-9" action="/royalty/save" method="post">
+            <form class="col-9" action="/royalty/save" method="post" enctype="multipart/form-data">
                 <?php csrf_field(); ?>
                 <h3 class="mt-4 mb-4"><b>Tambah Royalty</b></h3>
                 <div class="row mb-3">
@@ -81,8 +81,11 @@
                 </div>
                 <div class="row mb-3">
                     <label for="lampiran" class="col-sm-2 col-form-label">Lampiran</label>
-                    <div class="col-sm-10">
-                        <input type="file" class="form-control" id="lampiran" name="lampiran" placeholder="Catatan Royalty" value="<?= old('lampiran'); ?>">
+                    <div class="col-sm-8">
+                        <input type="file" class="form-control <?= ($validation->hasError('lampiran')) ? 'is-invalid' : ''; ?>" id="lampiran" name="lampiran">
+                        <div class="invalid-feedback">
+                            <?= $validation->getError('lampiran'); ?>
+                        </div>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary my-3">Tambah</button>

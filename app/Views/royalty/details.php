@@ -49,19 +49,22 @@
                         <li class="list-group-item mb-3"><?= $royalty['deskripsi']; ?></li>
                         <h4>Lampiran</h4>
                         <li class="list-group-item">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <?php $path = "image/" . $royalty['lampiran'] . ".png"; ?>
-                                        <img src="/image/<?= $royalty['lampiran']; ?><?= (file_exists($path) ? '.png' : '.jpg'); ?>" class="lampiran" alt="">
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">
-                                        <p><?= $royalty['lampiran']; ?><?= (file_exists($path) ? '.png' : '.jpg'); ?></p>
-                                    </td>
-                                </tr>
-                            </table>
+                            <?= (empty($royalty['lampiran'])) ? 'Tidak ada' : ''; ?>
+                            <?php if (!empty($royalty['lampiran'])) : ?>
+                                <table>
+                                    <tr>
+                                        <td>
+
+                                            <img src="/image/<?= $royalty['lampiran']; ?>" class="lampiran" alt="">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="text-center">
+                                            <p><?= $royalty['lampiran']; ?></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            <?php endif; ?>
                         </li>
                         <li class="list-group-item"></li>
                     </ul>

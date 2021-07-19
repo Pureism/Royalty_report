@@ -59,11 +59,21 @@ class Royalty extends BaseController
                 'errors' => [
                     'required' => 'Total Royalty tidak boleh kosong'
                 ]
+            ],
+            'lampiran' => [
+                'rules' => 'max_size[lampiran,1024]|ext_in[lampiran,pdf,doc,docx,png,jpg,jpeg]',
+                'errors' => [
+                    'max_size' => 'File terlalu besar (Maks 1Mb)',
+                    'ext_in' => 'File tidak sesuai (jpg, png, docx, pdf)'
+                ]
             ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('royalty/create')->withInput()->with('validation', $validation);
+            return redirect()->to('royalty/create')->withInput();
         }
+
+        $file_lampiran = $this->request->getFile('lampiran');
+        $nama_lampiran = $file_lampiran->getRandomName();
+        $file_lampiran->move('image', $nama_lampiran);
 
         $timestamp = Time::now();
         $slug = Time::parse($timestamp)->toLocalizedString('yyyyMMddHHmmss');
@@ -71,7 +81,8 @@ class Royalty extends BaseController
             'deskripsi' => $this->request->getVar('deskripsi'),
             'total' => $this->request->getVar('total'),
             'lampiran' => $this->request->getVar('lampiran'),
-            'slug' => $slug
+            'slug' => $slug,
+            'lampiran' => $nama_lampiran
 
         ]);
         session()->setFlashdata('pesantambah', 'Data Berhasil Ditambahkan');
@@ -80,6 +91,9 @@ class Royalty extends BaseController
 
     public function delete($id)
     {
+        $lampiran = $this->RoyaltyModel->find($id);
+        unlink('image/' . $lampiran['lampiran']);
+
         $this->RoyaltyModel->delete($id);
         session()->setFlashdata('pesanhapus', 'Data Berhasil Dihapus');
         return redirect()->to('/royalty');
@@ -111,9 +125,24 @@ class Royalty extends BaseController
                     'required' => 'Total Royalty tidak boleh kosong'
                 ]
             ],
+            'lampiran' => [
+                'rules' => 'max_size[lampiran,1024]|ext_in[lampiran,pdf,doc,docx,png,jpg,jpeg]',
+                'errors' => [
+                    'max_size' => 'File terlalu besar (Maks 1Mb)',
+                    'ext_in' => 'File tidak sesuai (jpg, png, docx, pdf)'
+                ]
+            ]
         ])) {
-            $validation = \Config\Services::validation();
-            return redirect()->to('royalty/edit/' . $this->request->getVar('slug'))->withInput()->with('validation', $validation);
+            return redirect()->to('royalty/edit/' . $this->request->getVar('slug'))->withInput();
+        }
+
+        $file_lampiran = $this->request->getFile('lampiran');
+        if ($file_lampiran->getError() == 4) {
+            $nama_lampiran = $this->request->getVar('lampiranLama');
+        } else {
+            $nama_lampiran = $file_lampiran->getRandomName();
+            $file_lampiran->move('image', $nama_lampiran);
+            unlink('image/' . $this->request->getVar('lampiranLama'));
         }
 
         $timestamp = Time::now();
@@ -122,7 +151,8 @@ class Royalty extends BaseController
             'deskripsi' => $this->request->getVar('deskripsi'),
             'total' => $this->request->getVar('total'),
             'lampiran' => $this->request->getVar('lampiran'),
-            'diubah' => $timestamp
+            'diubah' => $timestamp,
+            'lampiran' => $nama_lampiran
         ]);
         session()->setFlashdata('pesantambah', 'Data Berhasil Diubah');
         return redirect()->to('/Royalty');
