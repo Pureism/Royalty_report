@@ -25,7 +25,11 @@ This is a college assignment for software engineering subject. A web for manage 
   ```php
   php spark db:seed RoyaltySeeder
   ```
-- Finish, enjoy it
+- Run your web and database server with XAMPP or  locate your current directory to this project and run this code in your console
+  ```php
+  php spark serve
+  ```
+- Enjoy it
 
 ## Documentation
 
@@ -33,7 +37,6 @@ This is a college assignment for software engineering subject. A web for manage 
 
 ## Reference
 
-Thanks to :
-
-- [x] You can watch the video accompanying this series here: [https://www.youtube.com/playlist?list=PLBOh8f9FoHHgPEbiK-FSdSw3FiyP78fbk](https://www.youtube.com/playlist?list=PLBOh8f9FoHHgPEbiK-FSdSw3FiyP78fbk "howCode Programming Language Series")
-- [x] You can view original source code in Github [fauzaaulia's Repository](https://github.com/fauzaaulia/Rhs-Lang "Reza Aulia Github")
+Thanks to :pray::wave: :
+   
+- [x] Youtube Channel WebProgrammingUNPAS in series [Belajar Codeigniter 4](https://bit.ly/36MSaT9)
