@@ -33,7 +33,41 @@ This is a college assignment for software engineering subject. A web for manage 
 
 ## Documentation
 
+### Homepage
+  ![Homepage](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/Homepage.png)
 
+### Add
+  ![Homepage](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/Add.png)
+
+  **Validate input**
+
+  ![Validation](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/validation.png)
+
+**Added Alert**
+
+![Added](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/alertadd.png)
+
+**Result**
+
+![Resultadd](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/resultadd.png)
+
+### Detail
+![Detail](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/detail.png)
+
+### Edit
+![Edit](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/edit.png)
+
+### Delete
+![Delete](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/delete.png)
+
+**Deleted Alert**
+
+![Deleted](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/alertdelete.png)
+
+### Search
+
+**Searh name "Bagus"**
+![Search](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/Searching.png)
 
 ## Reference
 
