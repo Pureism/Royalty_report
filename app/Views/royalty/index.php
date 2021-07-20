@@ -3,6 +3,8 @@
 <?= $this->section('content'); ?>
 
 <div class="container">
+
+    <!-- Breadcrumb Menu -->
     <div class="row mt-4">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -11,6 +13,8 @@
             </ol>
         </nav>
     </div>
+
+    <!-- Tombol tambah -->
     <div class="row">
         <div class="col text-center ">
             <ul class="list-group list-group-flush">
@@ -20,6 +24,8 @@
             </ul>
         </div>
     </div>
+
+    <!-- Search bar + Alert panel -->
     <div class="row">
         <div class="col-5">
             <h3 class="mt-4 mb-4"><b>Daftar Royalty</b></h3>
@@ -45,6 +51,8 @@
             <?php endif; ?>
         </div>
     </div>
+
+    <!-- Tabel Menu -->
     <div class="row">
         <div class="col">
             <table class="table table-striped table-hover mb-4">

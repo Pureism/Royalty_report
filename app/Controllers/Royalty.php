@@ -17,8 +17,14 @@ class Royalty extends BaseController
 
     public function index()
     {
+        // Mencari current page
         $currentPage = $this->request->getVar('page_royalty') ? $this->request->getVar('page_royalty') : 1;
 
+        /**
+         **** MENAMPILKAN HALAMAN ****
+         * Jika keyword ada pada tabel maka tampilkan keyword
+         * Jika tidak tampilkan semua.
+         */
         $keyword = $this->request->getVar('keyword');
         if ($keyword) {
             $royalty = $this->RoyaltyModel->search($keyword);
@@ -26,6 +32,7 @@ class Royalty extends BaseController
             $royalty = $this->RoyaltyModel;
         }
 
+        // data
         $data = [
             'title' => 'Kelompok 3 | Report Royalty',
             'royalty' => $royalty->paginate(6, 'royalty'),
@@ -37,6 +44,7 @@ class Royalty extends BaseController
 
     public function details($slug)
     {
+        // data
         $royalty = $this->RoyaltyModel->getRoyalty($slug);
         $data = [
             'title' => 'Kelompok 3 | Detail Royalty',
@@ -48,6 +56,7 @@ class Royalty extends BaseController
 
     public function create()
     {
+        // data
         $data = [
             'title' => 'Kelompok 3 | Tambah Royalty',
             'validation' => \config\Services::validation()
@@ -57,18 +66,48 @@ class Royalty extends BaseController
 
     public function save()
     {
+        /**
+         ***** RULE SAVE ******
+         * Buku = required, min_length[5]
+         * Penulis = required, min_length[3]
+         * Cetak = required
+         * Harga = required
+         * Deskripsi = required, min_length[5]
+         * Total = required
+         * Lampiran = max_size[1 Mb], ext[pdf, docx, doc, jpg, jpeg, png]
+         */
         if (!$this->validate([
+            'buku' => [
+                'rules' => 'required|min_length[5]',
+                'errors' => [
+                    'required' => 'Judul buku tidak boleh kosong',
+                    'min_length' => 'Judul buku terlalu sedikit'
+                ]
+            ],
+            'penulis' => [
+                'rules' => 'required|min_length[3]',
+                'errors' => [
+                    'required' => 'Nama penulis tidak boleh kosong',
+                    'min_length' => 'Nama penulis terlalu sedikit'
+                ]
+            ],
+            'cetak' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jumlah Cetak tidak boleh kosong'
+                ]
+            ],
+            'harga' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Harga tidak boleh kosong'
+                ]
+            ],
             'deskripsi' => [
                 'rules' => 'required|min_length[5]',
                 'errors' => [
                     'required' => 'Deskripsi tidak boleh kosong',
                     'min_length' => '{field} terlalu sedikit'
-                ]
-            ],
-            'total' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Total Royalty tidak boleh kosong'
                 ]
             ],
             'lampiran' => [
@@ -82,15 +121,27 @@ class Royalty extends BaseController
             return redirect()->to('royalty/create')->withInput();
         }
 
+        // Memindahkan file + Set nama file
         $file_lampiran = $this->request->getFile('lampiran');
         $nama_lampiran = $file_lampiran->getRandomName();
         $file_lampiran->move('image', $nama_lampiran);
 
+        // Hitung Royalty
+        $hargaBuku = $this->request->getVar('harga');
+        $jumlahCetak = $this->request->getVar('cetak');
+        $totalRoyalty = $hargaBuku * $jumlahCetak / 100 * 10;
+
+        // data
         $timestamp = Time::now();
         $slug = Time::parse($timestamp)->toLocalizedString('yyyyMMddHHmmss');
         $this->RoyaltyModel->save([
+            'buku' => $this->request->getVar('buku'),
+            'penulis' => $this->request->getVar('penulis'),
+            'cetak' => $this->request->getVar('cetak'),
+            'cetak' => $this->request->getVar('cetak'),
+            'harga' => $this->request->getVar('harga'),
             'deskripsi' => $this->request->getVar('deskripsi'),
-            'total' => $this->request->getVar('total'),
+            'total' => $totalRoyalty,
             'lampiran' => $this->request->getVar('lampiran'),
             'slug' => $slug,
             'lampiran' => $nama_lampiran
@@ -102,6 +153,7 @@ class Royalty extends BaseController
 
     public function delete($id)
     {
+        // Menghapus file pada sistem
         $lampiran = $this->RoyaltyModel->find($id);
         unlink('image/' . $lampiran['lampiran']);
 
@@ -112,6 +164,7 @@ class Royalty extends BaseController
 
     public function edit($slug)
     {
+        // data
         $data = [
             'title' => 'Kelompok 3 | Edit Royalty',
             'validation' => \config\Services::validation(),
@@ -122,18 +175,48 @@ class Royalty extends BaseController
 
     public function update($id)
     {
+        /**
+         ***** RULE VALIDASI ******
+         * Buku = required, min_length[5]
+         * Penulis = required, min_length[3]
+         * Cetak = required
+         * Harga = required
+         * Deskripsi = required, min_length[5]
+         * Total = required
+         * Lampiran = max_size[1 Mb], ext[pdf, docx, doc, jpg, jpeg, png]
+         */
         if (!$this->validate([
+            'buku' => [
+                'rules' => 'required|min_length[5]',
+                'errors' => [
+                    'required' => 'Judul buku tidak boleh kosong',
+                    'min_length' => 'Judul buku terlalu sedikit'
+                ]
+            ],
+            'penulis' => [
+                'rules' => 'required|min_length[3]',
+                'errors' => [
+                    'required' => 'Nama penulis tidak boleh kosong',
+                    'min_length' => 'Nama penulis terlalu sedikit'
+                ]
+            ],
+            'cetak' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Jumlah Cetak tidak boleh kosong'
+                ]
+            ],
+            'harga' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Harga tidak boleh kosong'
+                ]
+            ],
             'deskripsi' => [
                 'rules' => 'required|min_length[5]',
                 'errors' => [
                     'required' => 'Deskripsi tidak boleh kosong',
                     'min_length' => '{field} terlalu sedikit'
-                ]
-            ],
-            'total' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'Total Royalty tidak boleh kosong'
                 ]
             ],
             'lampiran' => [
@@ -147,6 +230,7 @@ class Royalty extends BaseController
             return redirect()->to('royalty/edit/' . $this->request->getVar('slug'))->withInput();
         }
 
+        // Sistem update file upload
         $file_lampiran = $this->request->getFile('lampiran');
         if ($file_lampiran->getError() == 4) {
             $nama_lampiran = $this->request->getVar('lampiranLama');
@@ -156,12 +240,22 @@ class Royalty extends BaseController
             unlink('image/' . $this->request->getVar('lampiranLama'));
         }
 
+        // Hitung Royalty
+        $hargaBuku = $this->request->getVar('harga');
+        $jumlahCetak = $this->request->getVar('cetak');
+        $totalRoyalty = $hargaBuku * $jumlahCetak / 100 * 10;
+
+        // data
         $timestamp = Time::now();
         $this->RoyaltyModel->save([
             'id_royalty' => $id,
+            'buku' => $this->request->getVar('buku'),
+            'penulis' => $this->request->getVar('penulis'),
+            'cetak' => $this->request->getVar('cetak'),
+            'cetak' => $this->request->getVar('cetak'),
+            'harga' => $this->request->getVar('harga'),
             'deskripsi' => $this->request->getVar('deskripsi'),
-            'total' => $this->request->getVar('total'),
-            'lampiran' => $this->request->getVar('lampiran'),
+            'total' => $totalRoyalty,
             'diubah' => $timestamp,
             'lampiran' => $nama_lampiran
         ]);

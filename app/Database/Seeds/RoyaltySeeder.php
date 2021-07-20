@@ -13,17 +13,23 @@ class RoyaltySeeder extends Seeder
         for ($i = 0; $i < 100; $i++) {
             $datetime = $faker->date('Y-m-d h:i:s');
             $slug = url_title($datetime, '');
+
+            // Hitung Royalty
+            $hargaBuku = rand(10000, 500000);
+            $jumlahCetak = rand(50, 500);
+            $totalRoyalty = $hargaBuku * $jumlahCetak / 100 * 10;
+
             $data = [
                 'slug' => $slug,
-                'orders' => rand(1, 500),
                 'buku'    => $faker->sentence,
+                'harga' => $hargaBuku,
                 'penulis'    => $faker->firstName . ' ' . $faker->lastName,
                 'deskripsi' => $faker->paragraph(6),
-                'cetak' => rand(100, 5000),
-                'total' => rand(1000, 8000000),
-                'lampiran' => 'lampiran' . rand(1, 6) . '.png',
-                'dibuat' => $datetime,
+                'cetak' => $jumlahCetak,
+                'total' => $totalRoyalty,
+                'lampiran' => 'lampiran' . rand(1, 10) . '.png',
                 'diubah' => $datetime,
+                'dibuat' => $datetime,
                 'id_editor' => rand(1, 20),
                 'id_keuangan' => rand(1, 20),
                 'id_order' => rand(1, 20),

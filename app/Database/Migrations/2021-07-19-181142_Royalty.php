@@ -19,13 +19,14 @@ class Royalty extends Migration
 				'type'       => 'VARCHAR',
 				'constraint' => '255',
 			],
-			'orders' => [
-				'type' => 'INT',
-				'constraint' => '255',
-			],
 			'buku' => [
 				'type' => 'VARCHAR',
 				'constraint' => '255',
+				'null' => true,
+			],
+			'harga' => [
+				'type' => 'INT',
+				'constraint'     => '255',
 				'null' => true,
 			],
 			'penulis' => [
@@ -33,13 +34,13 @@ class Royalty extends Migration
 				'constraint'     => '255',
 				'null' => true,
 			],
-			'deskripsi' => [
-				'type' => 'VARCHAR',
+			'cetak' => [
+				'type' => 'INT',
 				'constraint'     => '255',
 				'null' => true,
 			],
-			'cetak' => [
-				'type' => 'INT',
+			'deskripsi' => [
+				'type' => 'VARCHAR',
 				'constraint'     => '255',
 				'null' => true,
 			],

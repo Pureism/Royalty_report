@@ -11,7 +11,7 @@ class RoyaltyModel extends Model
     protected $useTimestamps = true;
     protected $createdField = 'dibuat';
     protected $updatedField = 'diubah';
-    protected $allowedFields = ['deskripsi', 'total', 'lampiran', 'slug', 'diubah'];
+    protected $allowedFields = ['orders', 'buku', 'harga', 'penulis', 'deskripsi', 'cetak', 'total', 'lampiran', 'slug', 'diubah'];
 
     public function getRoyalty($slug = false)
     {

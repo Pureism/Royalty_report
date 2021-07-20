@@ -3,6 +3,8 @@
 <?= $this->section('content'); ?>
 
 <div class="container">
+
+    <!-- Breadcrumb Menu -->
     <div class="row mt-4">
         <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
             <ol class="breadcrumb">
@@ -12,6 +14,8 @@
             </ol>
         </nav>
     </div>
+
+    <!-- Card Menu -->
     <div class="row mt-2">
         <div class="col">
             <div class="card">
@@ -37,13 +41,17 @@
                         <li class="list-group-item mb-3">
                             <p class="text-muted h4"><?= $royalty['penulis']; ?></p>
                         </li>
+                        <h4>Harga Buku</h4>
+                        <li class="list-group-item mb-3">
+                            <p class="text-muted">Rp <?= $royalty['harga']; ?></p>
+                        </li>
                         <h4>Jumlah Cetak</h4>
                         <li class="list-group-item mb-3">
                             <p class="text-muted"><?= $royalty['cetak']; ?> buah</p>
                         </li>
                         <h4>Total Royalty</h4>
                         <li class="list-group-item mb-3">
-                            <p class="text-muted">Rp <?= $royalty['total']; ?></p>
+                            <p class="text-muted h4">Rp <?= $royalty['total']; ?></p>
                         </li>
                         <h4>Catatan</h4>
                         <li class="list-group-item mb-3"><?= $royalty['deskripsi']; ?></li>
