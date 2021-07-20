@@ -17,9 +17,13 @@ class Royalty extends BaseController
 
     public function index()
     {
+        $currentPage = $this->request->getVar('page_royalty') ? $this->request->getVar('page_royalty') : 1;
+
         $data = [
             'title' => 'Kelompok 3 | Report Royalty',
-            'royalty' => $this->RoyaltyModel->getRoyalty()
+            'royalty' => $this->RoyaltyModel->paginate(6, 'royalty'),
+            'pager' => $this->RoyaltyModel->pager,
+            'currentPage' => $currentPage
         ];
         return view('royalty\index', $data);
     }

@@ -37,7 +37,7 @@
     </div>
     <div class="row">
         <div class="col">
-            <table class="table table-striped table-hover">
+            <table class="table table-striped table-hover mb-4">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
@@ -49,7 +49,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php $i = 1 ?>
+                    <?php $i = 1 + (6 * ($currentPage - 1)) ?>
                     <?php foreach ($royalty as $r) : ?>
                         <tr>
                             <th class="text-center" scope="row"><?= $i++; ?></th>
@@ -66,6 +66,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
+            <?= $pager->links('royalty', 'royalty_pagination') ?>
         </div>
     </div>
 </div>
