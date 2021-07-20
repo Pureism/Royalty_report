@@ -39,15 +39,15 @@ This is a college assignment for software engineering subject. A web for manage 
 ### Add
   ![Homepage](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/Add.png)
 
-  **Validate input**
+  Validate input
 
   ![Validation](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/validation.png)
 
-**Added Alert**
+Added Alert
 
 ![Added](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/alertadd.png)
 
-**Result**
+Result
 
 ![Resultadd](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/resultadd.png)
 
@@ -60,13 +60,13 @@ This is a college assignment for software engineering subject. A web for manage 
 ### Delete
 ![Delete](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/delete.png)
 
-**Deleted Alert**
+Deleted Alert
 
 ![Deleted](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/alertdelete.png)
 
 ### Search
 
-**Searh name "Bagus"**
+Searh name "Bagus"
 ![Search](https://raw.githubusercontent.com/Pureism/Royalty_report/master/public/documentation/Searching.png)
 
 ## Reference
