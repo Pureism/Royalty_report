@@ -19,9 +19,16 @@ class Royalty extends BaseController
     {
         $currentPage = $this->request->getVar('page_royalty') ? $this->request->getVar('page_royalty') : 1;
 
+        $keyword = $this->request->getVar('keyword');
+        if ($keyword) {
+            $royalty = $this->RoyaltyModel->search($keyword);
+        } else {
+            $royalty = $this->RoyaltyModel;
+        }
+
         $data = [
             'title' => 'Kelompok 3 | Report Royalty',
-            'royalty' => $this->RoyaltyModel->paginate(6, 'royalty'),
+            'royalty' => $royalty->paginate(6, 'royalty'),
             'pager' => $this->RoyaltyModel->pager,
             'currentPage' => $currentPage
         ];

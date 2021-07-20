@@ -21,4 +21,13 @@ class RoyaltyModel extends Model
 
         return $this->where(['slug' => $slug])->first();
     }
+
+    public function search($keyword)
+    {
+        $builder = $this->table('royalty');
+        $builder->like('penulis', $keyword);
+        $builder->orlike('buku', $keyword);
+        $builder->orlike('total', $keyword);
+        return $builder;
+    }
 }
