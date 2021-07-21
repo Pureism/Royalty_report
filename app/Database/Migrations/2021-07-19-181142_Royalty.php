@@ -24,13 +24,13 @@ class Royalty extends Migration
 				'constraint' => '255',
 				'null' => true,
 			],
-			'harga' => [
-				'type' => 'INT',
+			'penulis' => [
+				'type' => 'VARCHAR',
 				'constraint'     => '255',
 				'null' => true,
 			],
-			'penulis' => [
-				'type' => 'VARCHAR',
+			'harga' => [
+				'type' => 'INT',
 				'constraint'     => '255',
 				'null' => true,
 			],
@@ -39,13 +39,13 @@ class Royalty extends Migration
 				'constraint'     => '255',
 				'null' => true,
 			],
-			'deskripsi' => [
-				'type' => 'VARCHAR',
+			'total' => [
+				'type' => 'INT',
 				'constraint'     => '255',
 				'null' => true,
 			],
-			'total' => [
-				'type' => 'INT',
+			'deskripsi' => [
+				'type' => 'VARCHAR',
 				'constraint'     => '255',
 				'null' => true,
 			],

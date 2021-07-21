@@ -22,18 +22,18 @@ class RoyaltySeeder extends Seeder
             $data = [
                 'slug' => $slug,
                 'buku'    => $faker->sentence,
-                'harga' => $hargaBuku,
                 'penulis'    => $faker->firstName . ' ' . $faker->lastName,
-                'deskripsi' => $faker->paragraph(6),
+                'harga' => $hargaBuku,
                 'cetak' => $jumlahCetak,
                 'total' => $totalRoyalty,
+                'deskripsi' => $faker->paragraph(6),
                 'lampiran' => 'lampiran' . rand(1, 10) . '.png',
                 'diubah' => $datetime,
                 'dibuat' => $datetime,
                 'id_editor' => rand(1, 20),
                 'id_keuangan' => rand(1, 20),
                 'id_order' => rand(1, 20),
-                'id_buku' => rand(1, 20)
+                'id_buku' => rand(1, 100)
             ];
             $this->db->table('royalty')->insert($data);
         }
